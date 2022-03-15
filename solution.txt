@@ -1,0 +1,116 @@
+package newcomm.one;
+
+public class Is235Class {
+    static int is235Arrays(int [] arr)
+    {
+        int divby2=0;
+        int divby3=0;
+        int divby5=0;
+        int divbyothers=0;
+        for (int i = 0; i < arr.length ; i++) {
+            boolean flag=true;
+            if(arr[i]%2==0)
+            {
+                divby2++;
+                flag=false;
+            }
+            if(arr[i]%3==0)
+            {
+                divby3++;
+                flag=false;
+            }
+            if(arr[i]%5==0)
+            {
+                divby5++;
+                flag=false;
+            }
+            if(divby2 +divby3 +divby5 +divbyothers==arr.length)
+                return 1;
+        }
+        return 0;
+    }
+}
+-------------------
+public class SameNumberOfFactorsClass {
+    static int sameNumberOfFactors(int n1 ,int n2)
+    {
+        int countfactor1=0;
+        int countfactor2=0;
+        if(n1<0 ||n2 <0) return 0;
+        for (int i = 1; i <=n1; i++) {
+            if(n1 %i==0)
+                countfactor1++;
+        }
+        for (int i = 1; i <=n2 ; i++) {
+            if(n2 % i==0)
+                countfactor2++;
+
+        }
+        if(countfactor1==countfactor2) {
+            return 1;
+        }
+        return 0;
+    }
+
+}
+------------------------
+public class IsFunnyClass {
+    static int isFunny(int[] arr) {
+
+        for (int i = 0; i < arr.length-1; i++) {
+                if ( arr[i] == 5 && arr[i + 1] != 13)
+                    return 0;
+            }
+        return 1;
+        }
+
+    public static void main(String[] args) {
+        int []x={5,13,4,9,5,13};
+        int ret=isFunny(x);
+        System.out.println(ret);
+    }
+
+    }
+
+--------------------
+public class IsNiceClass {
+    int isNice(int [] arr)
+    {
+        if(arr.length<2) return 0;
+        for (int i = 0; i <arr.length ; i++) {
+            int sum=0;
+            for (int j = 0; j <arr.length ; j++) {
+                if(i!=j) {
+                    sum += arr[j];
+                }
+            }
+            if(sum<=arr[i])
+                return 0;
+        }
+        return 1;
+
+    }
+}
+----------------------------
+public class LargestAdjacentSumClass {
+
+    static int LargestAdjacentSum(int []a)
+    {
+        if(a.length<2) return 0;
+        int len=a.length-1;
+        int [] sumArray=new int[len];
+        int k=0;
+        for (int i = 0; i <a.length-1 ; i++) {
+            sumArray[k]=a[i]+a[i+1];
+            k++;
+        }
+        int max=0;
+        for (int i = 0; i < len; i++) {
+
+           if(sumArray[i]>max)
+               max=sumArray[i];
+        }
+        return max;
+    }
+}
+
